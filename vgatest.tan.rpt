@@ -1,0 +1,663 @@
+Classic Timing Analyzer report for vgatest
+Fri Dec 13 14:08:15 2019
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clock'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+------------------+--------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From             ; To                             ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------------+--------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 137.700 ns                       ; enableLeftRight  ; pong:inst2|cont_aux.0000000110 ; --         ; clock    ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 15.500 ns                        ; VGAdrive:inst|V  ; V                              ; clock      ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 4.800 ns                         ; enableLeftRight  ; pong:inst2|y[9]                ; --         ; clock    ; 0            ;
+; Clock Setup: 'clock'         ; N/A   ; None          ; 5.89 MHz ( period = 169.700 ns ) ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                  ;                                ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------------+--------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K20RC240-4    ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                                                                                          ;
++-----------------------------------------+-----------------------------------------------------+------------------+--------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From             ; To                             ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------+--------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 5.89 MHz ( period = 169.700 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 166.100 ns              ;
+; N/A                                     ; 5.90 MHz ( period = 169.500 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 165.900 ns              ;
+; N/A                                     ; 5.90 MHz ( period = 169.500 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 165.900 ns              ;
+; N/A                                     ; 5.91 MHz ( period = 169.200 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 165.600 ns              ;
+; N/A                                     ; 5.92 MHz ( period = 168.900 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 165.300 ns              ;
+; N/A                                     ; 5.93 MHz ( period = 168.700 ns )                    ; pong:inst2|y[0]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 165.100 ns              ;
+; N/A                                     ; 5.93 MHz ( period = 168.500 ns )                    ; pong:inst2|y1[6] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 164.900 ns              ;
+; N/A                                     ; 5.94 MHz ( period = 168.300 ns )                    ; pong:inst2|y[4]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 164.700 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.600 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 164.000 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.600 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 164.000 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.600 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 164.000 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.97 MHz ( period = 167.400 ns )                    ; pong:inst2|y1[5] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 163.800 ns              ;
+; N/A                                     ; 5.98 MHz ( period = 167.100 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 163.500 ns              ;
+; N/A                                     ; 5.98 MHz ( period = 167.100 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 163.500 ns              ;
+; N/A                                     ; 5.98 MHz ( period = 167.100 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 163.500 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.800 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 163.200 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.800 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 163.200 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.800 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 163.200 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.800 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 163.200 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.700 ns )                    ; pong:inst2|y[5]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 163.100 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.600 ns )                    ; pong:inst2|y[0]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 163.000 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.600 ns )                    ; pong:inst2|y[0]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 163.000 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.600 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 163.000 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.600 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 163.000 ns              ;
+; N/A                                     ; 6.00 MHz ( period = 166.600 ns )                    ; pong:inst2|y[0]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 163.000 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.500 ns )                    ; pong:inst2|y[6]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 162.900 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.400 ns )                    ; pong:inst2|y1[6] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 162.800 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.400 ns )                    ; pong:inst2|y1[6] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 162.800 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.400 ns )                    ; pong:inst2|y1[6] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 162.800 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.300 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 162.700 ns              ;
+; N/A                                     ; 6.01 MHz ( period = 166.300 ns )                    ; pong:inst2|y1[2] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 162.700 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.200 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 162.600 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.200 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 162.600 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.200 ns )                    ; pong:inst2|y[4]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 162.600 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.200 ns )                    ; pong:inst2|y[4]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 162.600 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.200 ns )                    ; pong:inst2|y[4]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 162.600 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.100 ns )                    ; pong:inst2|y[7]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 162.500 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.02 MHz ( period = 166.000 ns )                    ; pong:inst2|y1[7] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 162.400 ns              ;
+; N/A                                     ; 6.03 MHz ( period = 165.800 ns )                    ; pong:inst2|y[0]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 162.200 ns              ;
+; N/A                                     ; 6.04 MHz ( period = 165.700 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 162.100 ns              ;
+; N/A                                     ; 6.04 MHz ( period = 165.700 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 162.100 ns              ;
+; N/A                                     ; 6.04 MHz ( period = 165.600 ns )                    ; pong:inst2|y1[6] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 162.000 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.400 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 161.800 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.400 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 161.800 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.400 ns )                    ; pong:inst2|y[4]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 161.800 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.300 ns )                    ; pong:inst2|y1[5] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 161.700 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.300 ns )                    ; pong:inst2|y1[5] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 161.700 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.300 ns )                    ; pong:inst2|y1[5] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 161.700 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.300 ns )                    ; pong:inst2|y1[1] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 161.700 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.200 ns )                    ; pong:inst2|y[0]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 161.600 ns              ;
+; N/A                                     ; 6.05 MHz ( period = 165.200 ns )                    ; pong:inst2|y[0]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 161.600 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 165.100 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 161.500 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 165.000 ns )                    ; pong:inst2|y1[6] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 161.400 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 165.000 ns )                    ; pong:inst2|y1[6] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 161.400 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 165.000 ns )                    ; pong:inst2|y1[0] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 161.400 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 164.900 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 161.300 ns              ;
+; N/A                                     ; 6.06 MHz ( period = 164.900 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 161.300 ns              ;
+; N/A                                     ; 6.07 MHz ( period = 164.800 ns )                    ; pong:inst2|y[4]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 161.200 ns              ;
+; N/A                                     ; 6.07 MHz ( period = 164.800 ns )                    ; pong:inst2|y[4]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 161.200 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.600 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 161.000 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.600 ns )                    ; pong:inst2|y[5]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 161.000 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.600 ns )                    ; pong:inst2|y[5]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 161.000 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.600 ns )                    ; pong:inst2|y[5]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 161.000 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.500 ns )                    ; pong:inst2|y1[5] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 160.900 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.400 ns )                    ; pong:inst2|y[6]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 160.800 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.400 ns )                    ; pong:inst2|y[6]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 160.800 ns              ;
+; N/A                                     ; 6.08 MHz ( period = 164.400 ns )                    ; pong:inst2|y[6]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 160.800 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.300 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 160.700 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.200 ns )                    ; pong:inst2|y1[2] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 160.600 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.200 ns )                    ; pong:inst2|y1[2] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 160.600 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.200 ns )                    ; pong:inst2|y1[2] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 160.600 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.100 ns )                    ; pong:inst2|y[0]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 160.500 ns              ;
+; N/A                                     ; 6.09 MHz ( period = 164.100 ns )                    ; pong:inst2|y[8]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 160.500 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 164.000 ns )                    ; pong:inst2|y[7]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 160.400 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 164.000 ns )                    ; pong:inst2|y[7]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 160.400 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 164.000 ns )                    ; pong:inst2|y[7]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 160.400 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[5] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[5] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[6] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[7] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[7] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y1[7] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.10 MHz ( period = 163.900 ns )                    ; pong:inst2|y[9]  ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 160.300 ns              ;
+; N/A                                     ; 6.11 MHz ( period = 163.800 ns )                    ; pong:inst2|y[5]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 160.200 ns              ;
+; N/A                                     ; 6.11 MHz ( period = 163.700 ns )                    ; pong:inst2|y[4]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 160.100 ns              ;
+; N/A                                     ; 6.11 MHz ( period = 163.600 ns )                    ; pong:inst2|y[6]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 160.000 ns              ;
+; N/A                                     ; 6.12 MHz ( period = 163.400 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 159.800 ns              ;
+; N/A                                     ; 6.12 MHz ( period = 163.400 ns )                    ; pong:inst2|y1[2] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 159.800 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y[5]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y[5]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[1] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[1] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y[7]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[1] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[8] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.200 ns )                    ; pong:inst2|y1[9] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 159.600 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.100 ns )                    ; pong:inst2|y1[7] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 159.500 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.000 ns )                    ; pong:inst2|y[6]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 159.400 ns              ;
+; N/A                                     ; 6.13 MHz ( period = 163.000 ns )                    ; pong:inst2|y[6]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 159.400 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.900 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 159.300 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.900 ns )                    ; pong:inst2|y1[0] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 159.300 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.900 ns )                    ; pong:inst2|y1[0] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 159.300 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.900 ns )                    ; pong:inst2|y1[0] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 159.300 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.800 ns )                    ; pong:inst2|y1[2] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 159.200 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.800 ns )                    ; pong:inst2|y1[2] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 159.200 ns              ;
+; N/A                                     ; 6.14 MHz ( period = 162.800 ns )                    ; pong:inst2|y1[5] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 159.200 ns              ;
+; N/A                                     ; 6.15 MHz ( period = 162.600 ns )                    ; pong:inst2|y[7]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 159.000 ns              ;
+; N/A                                     ; 6.15 MHz ( period = 162.600 ns )                    ; pong:inst2|y[7]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 159.000 ns              ;
+; N/A                                     ; 6.15 MHz ( period = 162.600 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 159.000 ns              ;
+; N/A                                     ; 6.15 MHz ( period = 162.500 ns )                    ; pong:inst2|y1[7] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 158.900 ns              ;
+; N/A                                     ; 6.15 MHz ( period = 162.500 ns )                    ; pong:inst2|y1[7] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 158.900 ns              ;
+; N/A                                     ; 6.16 MHz ( period = 162.400 ns )                    ; pong:inst2|y[0]  ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 158.800 ns              ;
+; N/A                                     ; 6.16 MHz ( period = 162.400 ns )                    ; pong:inst2|y1[1] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 158.800 ns              ;
+; N/A                                     ; 6.16 MHz ( period = 162.300 ns )                    ; pong:inst2|x1[4] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 158.700 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.200 ns )                    ; pong:inst2|y1[6] ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 158.600 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.100 ns )                    ; pong:inst2|y[5]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 158.500 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.100 ns )                    ; pong:inst2|y1[0] ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 158.500 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.100 ns )                    ; pong:inst2|x1[5] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 158.500 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.000 ns )                    ; pong:inst2|y[4]  ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 158.400 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.000 ns )                    ; pong:inst2|y[8]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 158.400 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.000 ns )                    ; pong:inst2|y[8]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 158.400 ns              ;
+; N/A                                     ; 6.17 MHz ( period = 162.000 ns )                    ; pong:inst2|y[8]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 158.400 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.900 ns )                    ; pong:inst2|y[6]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 158.300 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.800 ns )                    ; pong:inst2|y1[1] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 158.200 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.800 ns )                    ; pong:inst2|y1[1] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 158.200 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.800 ns )                    ; pong:inst2|y[9]  ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 158.200 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.800 ns )                    ; pong:inst2|y[9]  ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 158.200 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.800 ns )                    ; pong:inst2|y[9]  ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 158.200 ns              ;
+; N/A                                     ; 6.18 MHz ( period = 161.700 ns )                    ; pong:inst2|y1[2] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 158.100 ns              ;
+; N/A                                     ; 6.19 MHz ( period = 161.500 ns )                    ; pong:inst2|y1[0] ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 157.900 ns              ;
+; N/A                                     ; 6.19 MHz ( period = 161.500 ns )                    ; pong:inst2|y1[0] ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 157.900 ns              ;
+; N/A                                     ; 6.19 MHz ( period = 161.500 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 157.900 ns              ;
+; N/A                                     ; 6.19 MHz ( period = 161.500 ns )                    ; pong:inst2|y[7]  ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 157.900 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.400 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[4]               ; clock      ; clock    ; None                        ; None                      ; 157.800 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.400 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[3]               ; clock      ; clock    ; None                        ; None                      ; 157.800 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.400 ns )                    ; pong:inst2|y1[7] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 157.800 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[7]               ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[5]               ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|y1[3] ; pong:inst2|y1[9]               ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.300 ns )                    ; pong:inst2|x1[2] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 157.700 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[4]               ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[4]               ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[3]               ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[3]               ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000000001 ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.20 MHz ( period = 161.200 ns )                    ; pong:inst2|y[8]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 157.600 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[7]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[7]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[5]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[5]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[5] ; pong:inst2|y1[0]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y[1]  ; pong:inst2|y1[9]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[4] ; pong:inst2|y1[9]               ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[8] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[9] ; pong:inst2|cont_aux.0000000100 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[8] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[9] ; pong:inst2|cont_aux.0000000101 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[8] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.100 ns )                    ; pong:inst2|y1[9] ; pong:inst2|cont_aux.0000000011 ; clock      ; clock    ; None                        ; None                      ; 157.500 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.000 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 157.400 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.000 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000000001 ; clock      ; clock    ; None                        ; None                      ; 157.400 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.000 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000000001 ; clock      ; clock    ; None                        ; None                      ; 157.400 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.000 ns )                    ; pong:inst2|y[9]  ; pong:inst2|cont_aux.0000001000 ; clock      ; clock    ; None                        ; None                      ; 157.400 ns              ;
+; N/A                                     ; 6.21 MHz ( period = 161.000 ns )                    ; pong:inst2|x1[3] ; pong:inst2|cont_aux.0000000110 ; clock      ; clock    ; None                        ; None                      ; 157.400 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.900 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[4]               ; clock      ; clock    ; None                        ; None                      ; 157.300 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.900 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[3]               ; clock      ; clock    ; None                        ; None                      ; 157.300 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.800 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[7]               ; clock      ; clock    ; None                        ; None                      ; 157.200 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.800 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[5]               ; clock      ; clock    ; None                        ; None                      ; 157.200 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.800 ns )                    ; pong:inst2|y[2]  ; pong:inst2|y1[9]               ; clock      ; clock    ; None                        ; None                      ; 157.200 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.700 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 157.100 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.700 ns )                    ; pong:inst2|y1[1] ; pong:inst2|y1[2]               ; clock      ; clock    ; None                        ; None                      ; 157.100 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.700 ns )                    ; pong:inst2|y[2]  ; pong:inst2|cont_aux.0000000001 ; clock      ; clock    ; None                        ; None                      ; 157.100 ns              ;
+; N/A                                     ; 6.22 MHz ( period = 160.700 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000001001 ; clock      ; clock    ; None                        ; None                      ; 157.100 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.600 ns )                    ; pong:inst2|y[8]  ; pong:inst2|y1[8]               ; clock      ; clock    ; None                        ; None                      ; 157.000 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.600 ns )                    ; pong:inst2|y[8]  ; pong:inst2|y1[6]               ; clock      ; clock    ; None                        ; None                      ; 157.000 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.600 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[4]               ; clock      ; clock    ; None                        ; None                      ; 157.000 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.600 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[3]               ; clock      ; clock    ; None                        ; None                      ; 157.000 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[7]               ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[5]               ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y[0]  ; pong:inst2|y1[1]               ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y[3]  ; pong:inst2|y1[9]               ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y[1]  ; pong:inst2|cont_aux.0000001001 ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.500 ns )                    ; pong:inst2|y1[4] ; pong:inst2|cont_aux.0000001001 ; clock      ; clock    ; None                        ; None                      ; 156.900 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.400 ns )                    ; pong:inst2|y[3]  ; pong:inst2|cont_aux.0000000001 ; clock      ; clock    ; None                        ; None                      ; 156.800 ns              ;
+; N/A                                     ; 6.23 MHz ( period = 160.400 ns )                    ; pong:inst2|y1[3] ; pong:inst2|cont_aux.0000010000 ; clock      ; clock    ; None                        ; None                      ; 156.800 ns              ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                  ;                                ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------+--------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; tsu                                                                                             ;
++-------+--------------+------------+-----------------+--------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From            ; To                             ; To Clock ;
++-------+--------------+------------+-----------------+--------------------------------+----------+
+; N/A   ; None         ; 137.700 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000110 ; clock    ;
+; N/A   ; None         ; 135.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000100 ; clock    ;
+; N/A   ; None         ; 135.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000101 ; clock    ;
+; N/A   ; None         ; 135.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000011 ; clock    ;
+; N/A   ; None         ; 134.800 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001000 ; clock    ;
+; N/A   ; None         ; 134.200 ns ; enableLeftRight ; pong:inst2|y1[8]               ; clock    ;
+; N/A   ; None         ; 134.200 ns ; enableLeftRight ; pong:inst2|y1[6]               ; clock    ;
+; N/A   ; None         ; 133.100 ns ; enableLeftRight ; pong:inst2|y1[2]               ; clock    ;
+; N/A   ; None         ; 131.400 ns ; enableLeftRight ; pong:inst2|y1[0]               ; clock    ;
+; N/A   ; None         ; 129.500 ns ; enableLeftRight ; pong:inst2|y1[1]               ; clock    ;
+; N/A   ; None         ; 129.400 ns ; enableLeftRight ; pong:inst2|y1[4]               ; clock    ;
+; N/A   ; None         ; 129.400 ns ; enableLeftRight ; pong:inst2|y1[3]               ; clock    ;
+; N/A   ; None         ; 129.300 ns ; enableLeftRight ; pong:inst2|y1[7]               ; clock    ;
+; N/A   ; None         ; 129.300 ns ; enableLeftRight ; pong:inst2|y1[5]               ; clock    ;
+; N/A   ; None         ; 129.300 ns ; enableLeftRight ; pong:inst2|y1[9]               ; clock    ;
+; N/A   ; None         ; 129.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000001 ; clock    ;
+; N/A   ; None         ; 128.700 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001001 ; clock    ;
+; N/A   ; None         ; 128.400 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010000 ; clock    ;
+; N/A   ; None         ; 127.100 ns ; enableLeftRight ; pong:inst2|x1[2]               ; clock    ;
+; N/A   ; None         ; 126.800 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001010 ; clock    ;
+; N/A   ; None         ; 126.800 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001011 ; clock    ;
+; N/A   ; None         ; 126.400 ns ; enableLeftRight ; pong:inst2|x1[0]               ; clock    ;
+; N/A   ; None         ; 125.900 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010001 ; clock    ;
+; N/A   ; None         ; 125.900 ns ; enableLeftRight ; pong:inst2|cont_aux.0000011001 ; clock    ;
+; N/A   ; None         ; 125.800 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010010 ; clock    ;
+; N/A   ; None         ; 125.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000011000 ; clock    ;
+; N/A   ; None         ; 125.300 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010011 ; clock    ;
+; N/A   ; None         ; 122.600 ns ; enableLeftRight ; pong:inst2|x1[1]               ; clock    ;
+; N/A   ; None         ; 122.500 ns ; enableLeftRight ; pong:inst2|x1[4]               ; clock    ;
+; N/A   ; None         ; 122.500 ns ; enableLeftRight ; pong:inst2|x1[3]               ; clock    ;
+; N/A   ; None         ; 122.500 ns ; enableLeftRight ; pong:inst2|x1[5]               ; clock    ;
+; N/A   ; None         ; 122.400 ns ; enableLeftRight ; pong:inst2|x1[6]               ; clock    ;
+; N/A   ; None         ; 122.400 ns ; enableLeftRight ; pong:inst2|x1[7]               ; clock    ;
+; N/A   ; None         ; 122.200 ns ; enableLeftRight ; pong:inst2|x1[9]               ; clock    ;
+; N/A   ; None         ; 122.200 ns ; enableLeftRight ; pong:inst2|x1[8]               ; clock    ;
+; N/A   ; None         ; 121.700 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010110 ; clock    ;
+; N/A   ; None         ; 121.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010101 ; clock    ;
+; N/A   ; None         ; 121.500 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010100 ; clock    ;
+; N/A   ; None         ; 121.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000000 ; clock    ;
+; N/A   ; None         ; 121.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000000010 ; clock    ;
+; N/A   ; None         ; 116.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010111 ; clock    ;
+; N/A   ; None         ; 114.400 ns ; enableLeftRight ; pong:inst2|colisao.0000000001  ; clock    ;
+; N/A   ; None         ; 114.400 ns ; enableLeftRight ; pong:inst2|colisao.0000000011  ; clock    ;
+; N/A   ; None         ; 112.500 ns ; enableLeftRight ; pong:inst2|colisao.0000000100  ; clock    ;
+; N/A   ; None         ; 109.500 ns ; enableLeftRight ; pong:inst2|colisao.0000000010  ; clock    ;
+; N/A   ; None         ; 10.900 ns  ; leftRight       ; pong:inst2|y[7]                ; clock    ;
+; N/A   ; None         ; 10.200 ns  ; leftRight       ; pong:inst2|y[1]                ; clock    ;
+; N/A   ; None         ; 9.800 ns   ; leftRight       ; pong:inst2|y[3]                ; clock    ;
+; N/A   ; None         ; 9.600 ns   ; leftRight       ; pong:inst2|y[0]                ; clock    ;
+; N/A   ; None         ; 9.500 ns   ; upDown          ; pong:inst2|y[7]                ; clock    ;
+; N/A   ; None         ; 8.200 ns   ; leftRight       ; pong:inst2|y[9]                ; clock    ;
+; N/A   ; None         ; 7.900 ns   ; upDown          ; pong:inst2|y[1]                ; clock    ;
+; N/A   ; None         ; 7.800 ns   ; enableLeftRight ; pong:inst2|y[1]                ; clock    ;
+; N/A   ; None         ; 7.300 ns   ; enableLeftRight ; pong:inst2|y[3]                ; clock    ;
+; N/A   ; None         ; 7.300 ns   ; upDown          ; pong:inst2|y[3]                ; clock    ;
+; N/A   ; None         ; 7.100 ns   ; enableLeftRight ; pong:inst2|y[0]                ; clock    ;
+; N/A   ; None         ; 7.100 ns   ; upDown          ; pong:inst2|y[0]                ; clock    ;
+; N/A   ; None         ; 6.900 ns   ; leftRight       ; pong:inst2|y[2]                ; clock    ;
+; N/A   ; None         ; 6.800 ns   ; upDown          ; pong:inst2|y[9]                ; clock    ;
+; N/A   ; None         ; 5.800 ns   ; leftRight       ; pong:inst2|y[8]                ; clock    ;
+; N/A   ; None         ; 5.800 ns   ; upDown          ; pong:inst2|y[8]                ; clock    ;
+; N/A   ; None         ; 5.600 ns   ; leftRight       ; pong:inst2|y[5]                ; clock    ;
+; N/A   ; None         ; 5.600 ns   ; leftRight       ; pong:inst2|y[4]                ; clock    ;
+; N/A   ; None         ; 4.400 ns   ; upDown          ; pong:inst2|y[2]                ; clock    ;
+; N/A   ; None         ; 4.100 ns   ; enableLeftRight ; pong:inst2|cont.0000000001     ; clock    ;
+; N/A   ; None         ; 3.700 ns   ; enableLeftRight ; pong:inst2|y[6]                ; clock    ;
+; N/A   ; None         ; 3.300 ns   ; upDown          ; pong:inst2|y[5]                ; clock    ;
+; N/A   ; None         ; 3.300 ns   ; upDown          ; pong:inst2|y[4]                ; clock    ;
+; N/A   ; None         ; 3.200 ns   ; leftRight       ; pong:inst2|y[6]                ; clock    ;
+; N/A   ; None         ; 3.200 ns   ; enableLeftRight ; pong:inst2|y[7]                ; clock    ;
+; N/A   ; None         ; 3.100 ns   ; enableLeftRight ; pong:inst2|y[5]                ; clock    ;
+; N/A   ; None         ; 3.100 ns   ; enableLeftRight ; pong:inst2|y[4]                ; clock    ;
+; N/A   ; None         ; 3.100 ns   ; enableLeftRight ; pong:inst2|y[2]                ; clock    ;
+; N/A   ; None         ; 2.300 ns   ; upDown          ; pong:inst2|y[6]                ; clock    ;
+; N/A   ; None         ; -0.200 ns  ; enableLeftRight ; pong:inst2|y[8]                ; clock    ;
+; N/A   ; None         ; -0.700 ns  ; enableLeftRight ; pong:inst2|y[9]                ; clock    ;
++-------+--------------+------------+-----------------+--------------------------------+----------+
+
+
++------------------------------------------------------------------------+
+; tco                                                                    ;
++-------+--------------+------------+------------------+----+------------+
+; Slack ; Required tco ; Actual tco ; From             ; To ; From Clock ;
++-------+--------------+------------+------------------+----+------------+
+; N/A   ; None         ; 15.500 ns  ; VGAdrive:inst|V  ; V  ; clock      ;
+; N/A   ; None         ; 15.300 ns  ; VGAdrive:inst|H  ; H  ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; pong:inst2|barra ; R  ; clock      ;
+; N/A   ; None         ; 12.500 ns  ; pong:inst2|bola  ; B  ; clock      ;
++-------+--------------+------------+------------------+----+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; th                                                                                                     ;
++---------------+-------------+------------+-----------------+--------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From            ; To                             ; To Clock ;
++---------------+-------------+------------+-----------------+--------------------------------+----------+
+; N/A           ; None        ; 4.800 ns   ; enableLeftRight ; pong:inst2|y[9]                ; clock    ;
+; N/A           ; None        ; 4.300 ns   ; enableLeftRight ; pong:inst2|y[8]                ; clock    ;
+; N/A           ; None        ; 3.700 ns   ; upDown          ; pong:inst2|y[6]                ; clock    ;
+; N/A           ; None        ; 1.000 ns   ; enableLeftRight ; pong:inst2|y[5]                ; clock    ;
+; N/A           ; None        ; 1.000 ns   ; enableLeftRight ; pong:inst2|y[4]                ; clock    ;
+; N/A           ; None        ; 1.000 ns   ; enableLeftRight ; pong:inst2|y[2]                ; clock    ;
+; N/A           ; None        ; 0.900 ns   ; leftRight       ; pong:inst2|y[6]                ; clock    ;
+; N/A           ; None        ; 0.900 ns   ; enableLeftRight ; pong:inst2|y[7]                ; clock    ;
+; N/A           ; None        ; 0.800 ns   ; upDown          ; pong:inst2|y[5]                ; clock    ;
+; N/A           ; None        ; 0.800 ns   ; upDown          ; pong:inst2|y[4]                ; clock    ;
+; N/A           ; None        ; 0.400 ns   ; enableLeftRight ; pong:inst2|y[6]                ; clock    ;
+; N/A           ; None        ; 0.200 ns   ; upDown          ; pong:inst2|y[8]                ; clock    ;
+; N/A           ; None        ; 0.000 ns   ; enableLeftRight ; pong:inst2|cont_aux.0000011000 ; clock    ;
+; N/A           ; None        ; 0.000 ns   ; enableLeftRight ; pong:inst2|cont.0000000001     ; clock    ;
+; N/A           ; None        ; -0.300 ns  ; upDown          ; pong:inst2|y[2]                ; clock    ;
+; N/A           ; None        ; -1.500 ns  ; leftRight       ; pong:inst2|y[5]                ; clock    ;
+; N/A           ; None        ; -1.500 ns  ; leftRight       ; pong:inst2|y[4]                ; clock    ;
+; N/A           ; None        ; -1.700 ns  ; leftRight       ; pong:inst2|y[8]                ; clock    ;
+; N/A           ; None        ; -2.400 ns  ; enableLeftRight ; pong:inst2|colisao.0000000011  ; clock    ;
+; N/A           ; None        ; -2.500 ns  ; enableLeftRight ; pong:inst2|colisao.0000000001  ; clock    ;
+; N/A           ; None        ; -2.700 ns  ; upDown          ; pong:inst2|y[9]                ; clock    ;
+; N/A           ; None        ; -2.800 ns  ; leftRight       ; pong:inst2|y[2]                ; clock    ;
+; N/A           ; None        ; -3.000 ns  ; enableLeftRight ; pong:inst2|y[0]                ; clock    ;
+; N/A           ; None        ; -3.000 ns  ; upDown          ; pong:inst2|y[0]                ; clock    ;
+; N/A           ; None        ; -3.200 ns  ; enableLeftRight ; pong:inst2|y[3]                ; clock    ;
+; N/A           ; None        ; -3.200 ns  ; upDown          ; pong:inst2|y[3]                ; clock    ;
+; N/A           ; None        ; -3.700 ns  ; enableLeftRight ; pong:inst2|y[1]                ; clock    ;
+; N/A           ; None        ; -3.800 ns  ; upDown          ; pong:inst2|y[1]                ; clock    ;
+; N/A           ; None        ; -4.100 ns  ; leftRight       ; pong:inst2|y[9]                ; clock    ;
+; N/A           ; None        ; -4.600 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000001000 ; clock    ;
+; N/A           ; None        ; -5.100 ns  ; enableLeftRight ; pong:inst2|colisao.0000000010  ; clock    ;
+; N/A           ; None        ; -5.200 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000000 ; clock    ;
+; N/A           ; None        ; -5.400 ns  ; upDown          ; pong:inst2|y[7]                ; clock    ;
+; N/A           ; None        ; -5.500 ns  ; leftRight       ; pong:inst2|y[0]                ; clock    ;
+; N/A           ; None        ; -5.500 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000010111 ; clock    ;
+; N/A           ; None        ; -5.700 ns  ; leftRight       ; pong:inst2|y[3]                ; clock    ;
+; N/A           ; None        ; -6.000 ns  ; enableLeftRight ; pong:inst2|x1[1]               ; clock    ;
+; N/A           ; None        ; -6.100 ns  ; leftRight       ; pong:inst2|y[1]                ; clock    ;
+; N/A           ; None        ; -6.100 ns  ; enableLeftRight ; pong:inst2|x1[3]               ; clock    ;
+; N/A           ; None        ; -6.100 ns  ; enableLeftRight ; pong:inst2|x1[5]               ; clock    ;
+; N/A           ; None        ; -6.200 ns  ; enableLeftRight ; pong:inst2|x1[9]               ; clock    ;
+; N/A           ; None        ; -6.200 ns  ; enableLeftRight ; pong:inst2|x1[6]               ; clock    ;
+; N/A           ; None        ; -6.200 ns  ; enableLeftRight ; pong:inst2|x1[7]               ; clock    ;
+; N/A           ; None        ; -6.200 ns  ; enableLeftRight ; pong:inst2|x1[8]               ; clock    ;
+; N/A           ; None        ; -6.600 ns  ; enableLeftRight ; pong:inst2|x1[4]               ; clock    ;
+; N/A           ; None        ; -6.700 ns  ; enableLeftRight ; pong:inst2|y1[1]               ; clock    ;
+; N/A           ; None        ; -6.700 ns  ; enableLeftRight ; pong:inst2|y1[9]               ; clock    ;
+; N/A           ; None        ; -6.800 ns  ; leftRight       ; pong:inst2|y[7]                ; clock    ;
+; N/A           ; None        ; -6.800 ns  ; enableLeftRight ; pong:inst2|y1[8]               ; clock    ;
+; N/A           ; None        ; -6.800 ns  ; enableLeftRight ; pong:inst2|y1[6]               ; clock    ;
+; N/A           ; None        ; -6.900 ns  ; enableLeftRight ; pong:inst2|y1[4]               ; clock    ;
+; N/A           ; None        ; -6.900 ns  ; enableLeftRight ; pong:inst2|y1[3]               ; clock    ;
+; N/A           ; None        ; -7.000 ns  ; enableLeftRight ; pong:inst2|y1[7]               ; clock    ;
+; N/A           ; None        ; -7.000 ns  ; enableLeftRight ; pong:inst2|y1[5]               ; clock    ;
+; N/A           ; None        ; -7.100 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000110 ; clock    ;
+; N/A           ; None        ; -7.200 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000100 ; clock    ;
+; N/A           ; None        ; -7.200 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000101 ; clock    ;
+; N/A           ; None        ; -7.200 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000011 ; clock    ;
+; N/A           ; None        ; -7.300 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000001001 ; clock    ;
+; N/A           ; None        ; -8.100 ns  ; enableLeftRight ; pong:inst2|colisao.0000000100  ; clock    ;
+; N/A           ; None        ; -9.400 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000001 ; clock    ;
+; N/A           ; None        ; -9.500 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000000010 ; clock    ;
+; N/A           ; None        ; -9.800 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000010100 ; clock    ;
+; N/A           ; None        ; -9.900 ns  ; enableLeftRight ; pong:inst2|cont_aux.0000010101 ; clock    ;
+; N/A           ; None        ; -10.000 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010110 ; clock    ;
+; N/A           ; None        ; -10.800 ns ; enableLeftRight ; pong:inst2|x1[0]               ; clock    ;
+; N/A           ; None        ; -11.000 ns ; enableLeftRight ; pong:inst2|x1[2]               ; clock    ;
+; N/A           ; None        ; -11.200 ns ; enableLeftRight ; pong:inst2|y1[0]               ; clock    ;
+; N/A           ; None        ; -11.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001010 ; clock    ;
+; N/A           ; None        ; -12.900 ns ; enableLeftRight ; pong:inst2|y1[2]               ; clock    ;
+; N/A           ; None        ; -13.300 ns ; enableLeftRight ; pong:inst2|cont_aux.0000001011 ; clock    ;
+; N/A           ; None        ; -13.600 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010011 ; clock    ;
+; N/A           ; None        ; -14.100 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010000 ; clock    ;
+; N/A           ; None        ; -14.100 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010010 ; clock    ;
+; N/A           ; None        ; -14.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000010001 ; clock    ;
+; N/A           ; None        ; -14.200 ns ; enableLeftRight ; pong:inst2|cont_aux.0000011001 ; clock    ;
++---------------+-------------+------------+-----------------+--------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri Dec 13 14:08:15 2019
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off vgatest -c vgatest
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clock" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "pong:inst2|innerClk" as buffer
+Info: Clock "clock" has Internal fmax of 5.89 MHz between source register "pong:inst2|y1[3]" and destination register "pong:inst2|cont_aux.0000000110" (period= 169.7 ns)
+    Info: + Longest register to register delay is 166.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_A15; Fanout = 19; REG Node = 'pong:inst2|y1[3]'
+        Info: 2: + IC(4.300 ns) + CELL(1.200 ns) = 5.500 ns; Loc. = LC6_C9; Fanout = 2; COMB Node = 'pong:inst2|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 3: + IC(0.000 ns) + CELL(1.300 ns) = 6.800 ns; Loc. = LC7_C9; Fanout = 9; COMB Node = 'pong:inst2|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]'
+        Info: 4: + IC(3.000 ns) + CELL(2.300 ns) = 12.100 ns; Loc. = LC3_C16; Fanout = 1; COMB Node = 'pong:inst2|LessThan14~14'
+        Info: 5: + IC(0.600 ns) + CELL(2.300 ns) = 15.000 ns; Loc. = LC2_C16; Fanout = 1; COMB Node = 'pong:inst2|LessThan14~17'
+        Info: 6: + IC(2.200 ns) + CELL(1.800 ns) = 19.000 ns; Loc. = LC5_C14; Fanout = 1; COMB Node = 'pong:inst2|LessThan14~16'
+        Info: 7: + IC(0.600 ns) + CELL(2.300 ns) = 21.900 ns; Loc. = LC7_C14; Fanout = 1; COMB Node = 'pong:inst2|always3~212'
+        Info: 8: + IC(2.500 ns) + CELL(2.300 ns) = 26.700 ns; Loc. = LC1_C13; Fanout = 5; COMB Node = 'pong:inst2|always3~215'
+        Info: 9: + IC(4.100 ns) + CELL(2.300 ns) = 33.100 ns; Loc. = LC3_D11; Fanout = 1; COMB Node = 'pong:inst2|colisao~273'
+        Info: 10: + IC(0.600 ns) + CELL(1.800 ns) = 35.500 ns; Loc. = LC1_D11; Fanout = 4; COMB Node = 'pong:inst2|colisao~274'
+        Info: 11: + IC(2.300 ns) + CELL(2.300 ns) = 40.100 ns; Loc. = LC5_D10; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1287'
+        Info: 12: + IC(0.600 ns) + CELL(1.800 ns) = 42.500 ns; Loc. = LC1_D10; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1289'
+        Info: 13: + IC(2.300 ns) + CELL(2.300 ns) = 47.100 ns; Loc. = LC1_D9; Fanout = 16; COMB Node = 'pong:inst2|cont_aux~1290'
+        Info: 14: + IC(2.700 ns) + CELL(2.300 ns) = 52.100 ns; Loc. = LC6_D6; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1292'
+        Info: 15: + IC(0.600 ns) + CELL(2.300 ns) = 55.000 ns; Loc. = LC3_D6; Fanout = 1; COMB Node = 'pong:inst2|always3~224'
+        Info: 16: + IC(0.600 ns) + CELL(2.300 ns) = 57.900 ns; Loc. = LC1_D6; Fanout = 6; COMB Node = 'pong:inst2|always3~225'
+        Info: 17: + IC(2.400 ns) + CELL(1.800 ns) = 62.100 ns; Loc. = LC5_D7; Fanout = 7; COMB Node = 'pong:inst2|cont_aux~1294'
+        Info: 18: + IC(0.600 ns) + CELL(2.300 ns) = 65.000 ns; Loc. = LC2_D7; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1295'
+        Info: 19: + IC(0.600 ns) + CELL(2.300 ns) = 67.900 ns; Loc. = LC8_D7; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1296'
+        Info: 20: + IC(2.300 ns) + CELL(1.800 ns) = 72.000 ns; Loc. = LC2_D8; Fanout = 3; COMB Node = 'pong:inst2|always3~226'
+        Info: 21: + IC(0.600 ns) + CELL(1.800 ns) = 74.400 ns; Loc. = LC5_D8; Fanout = 8; COMB Node = 'pong:inst2|always3~228'
+        Info: 22: + IC(0.600 ns) + CELL(2.300 ns) = 77.300 ns; Loc. = LC6_D8; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1297'
+        Info: 23: + IC(0.600 ns) + CELL(2.300 ns) = 80.200 ns; Loc. = LC4_D8; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1299'
+        Info: 24: + IC(0.600 ns) + CELL(2.300 ns) = 83.100 ns; Loc. = LC1_D8; Fanout = 4; COMB Node = 'pong:inst2|always3~230'
+        Info: 25: + IC(2.800 ns) + CELL(1.800 ns) = 87.700 ns; Loc. = LC5_D14; Fanout = 6; COMB Node = 'pong:inst2|cont_aux~1301'
+        Info: 26: + IC(0.600 ns) + CELL(2.300 ns) = 90.600 ns; Loc. = LC7_D14; Fanout = 3; COMB Node = 'pong:inst2|always3~232'
+        Info: 27: + IC(0.600 ns) + CELL(2.300 ns) = 93.500 ns; Loc. = LC2_D14; Fanout = 7; COMB Node = 'pong:inst2|always3~233'
+        Info: 28: + IC(0.600 ns) + CELL(1.800 ns) = 95.900 ns; Loc. = LC1_D14; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1303'
+        Info: 29: + IC(2.500 ns) + CELL(2.300 ns) = 100.700 ns; Loc. = LC3_D13; Fanout = 5; COMB Node = 'pong:inst2|always3~23'
+        Info: 30: + IC(0.600 ns) + CELL(2.300 ns) = 103.600 ns; Loc. = LC4_D13; Fanout = 6; COMB Node = 'pong:inst2|always3~236'
+        Info: 31: + IC(2.200 ns) + CELL(1.800 ns) = 107.600 ns; Loc. = LC7_D15; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1305'
+        Info: 32: + IC(0.600 ns) + CELL(2.300 ns) = 110.500 ns; Loc. = LC4_D15; Fanout = 1; COMB Node = 'pong:inst2|always3~26'
+        Info: 33: + IC(0.600 ns) + CELL(1.800 ns) = 112.900 ns; Loc. = LC2_D15; Fanout = 7; COMB Node = 'pong:inst2|cont_aux~1307'
+        Info: 34: + IC(0.600 ns) + CELL(2.300 ns) = 115.800 ns; Loc. = LC6_D15; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1308'
+        Info: 35: + IC(0.600 ns) + CELL(1.800 ns) = 118.200 ns; Loc. = LC1_D15; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1310'
+        Info: 36: + IC(2.200 ns) + CELL(2.300 ns) = 122.700 ns; Loc. = LC6_D16; Fanout = 5; COMB Node = 'pong:inst2|always3~29'
+        Info: 37: + IC(0.600 ns) + CELL(1.800 ns) = 125.100 ns; Loc. = LC8_D16; Fanout = 12; COMB Node = 'pong:inst2|cont_aux~1312'
+        Info: 38: + IC(0.600 ns) + CELL(2.300 ns) = 128.000 ns; Loc. = LC2_D16; Fanout = 4; COMB Node = 'pong:inst2|always3~30'
+        Info: 39: + IC(0.600 ns) + CELL(2.300 ns) = 130.900 ns; Loc. = LC5_D16; Fanout = 2; COMB Node = 'pong:inst2|cont_aux~1314'
+        Info: 40: + IC(0.600 ns) + CELL(1.800 ns) = 133.300 ns; Loc. = LC7_D16; Fanout = 9; COMB Node = 'pong:inst2|always3~238'
+        Info: 41: + IC(2.400 ns) + CELL(1.800 ns) = 137.500 ns; Loc. = LC3_D18; Fanout = 14; COMB Node = 'pong:inst2|cont_aux~1315'
+        Info: 42: + IC(0.600 ns) + CELL(2.300 ns) = 140.400 ns; Loc. = LC5_D18; Fanout = 3; COMB Node = 'pong:inst2|always3~33'
+        Info: 43: + IC(0.600 ns) + CELL(1.800 ns) = 142.800 ns; Loc. = LC2_D18; Fanout = 6; COMB Node = 'pong:inst2|cont_aux~1317'
+        Info: 44: + IC(0.600 ns) + CELL(2.300 ns) = 145.700 ns; Loc. = LC1_D18; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1329'
+        Info: 45: + IC(2.500 ns) + CELL(1.800 ns) = 150.000 ns; Loc. = LC3_D17; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1330'
+        Info: 46: + IC(0.600 ns) + CELL(2.300 ns) = 152.900 ns; Loc. = LC5_D17; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1331'
+        Info: 47: + IC(0.600 ns) + CELL(1.800 ns) = 155.300 ns; Loc. = LC1_D17; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1332'
+        Info: 48: + IC(2.700 ns) + CELL(1.800 ns) = 159.800 ns; Loc. = LC3_D7; Fanout = 2; COMB Node = 'pong:inst2|cont_aux~1337'
+        Info: 49: + IC(0.600 ns) + CELL(1.800 ns) = 162.200 ns; Loc. = LC1_D7; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1338'
+        Info: 50: + IC(2.200 ns) + CELL(1.700 ns) = 166.100 ns; Loc. = LC2_D4; Fanout = 1; REG Node = 'pong:inst2|cont_aux.0000000110'
+        Info: Total cell delay = 100.500 ns ( 60.51 % )
+        Info: Total interconnect delay = 65.600 ns ( 39.49 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clock" to destination register is 11.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_91; Fanout = 44; CLK Node = 'clock'
+            Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC1_F10; Fanout = 56; REG Node = 'pong:inst2|innerClk'
+            Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC2_D4; Fanout = 1; REG Node = 'pong:inst2|cont_aux.0000000110'
+            Info: Total cell delay = 3.900 ns ( 35.45 % )
+            Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+        Info: - Longest clock path from clock "clock" to source register is 11.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_91; Fanout = 44; CLK Node = 'clock'
+            Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC1_F10; Fanout = 56; REG Node = 'pong:inst2|innerClk'
+            Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC2_A15; Fanout = 19; REG Node = 'pong:inst2|y1[3]'
+            Info: Total cell delay = 3.900 ns ( 35.45 % )
+            Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Micro setup delay of destination is 2.500 ns
+Info: tsu for register "pong:inst2|cont_aux.0000000110" (data pin = "enableLeftRight", clock pin = "clock") is 137.700 ns
+    Info: + Longest pin to register delay is 146.200 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.500 ns) = 3.500 ns; Loc. = PIN_41; Fanout = 24; PIN Node = 'enableLeftRight'
+        Info: 2: + IC(7.500 ns) + CELL(1.800 ns) = 12.800 ns; Loc. = LC2_D11; Fanout = 1; COMB Node = 'pong:inst2|colisao~275'
+        Info: 3: + IC(2.200 ns) + CELL(2.300 ns) = 17.300 ns; Loc. = LC3_D10; Fanout = 3; COMB Node = 'pong:inst2|colisao~276'
+        Info: 4: + IC(0.600 ns) + CELL(2.300 ns) = 20.200 ns; Loc. = LC5_D10; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1287'
+        Info: 5: + IC(0.600 ns) + CELL(1.800 ns) = 22.600 ns; Loc. = LC1_D10; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1289'
+        Info: 6: + IC(2.300 ns) + CELL(2.300 ns) = 27.200 ns; Loc. = LC1_D9; Fanout = 16; COMB Node = 'pong:inst2|cont_aux~1290'
+        Info: 7: + IC(2.700 ns) + CELL(2.300 ns) = 32.200 ns; Loc. = LC6_D6; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1292'
+        Info: 8: + IC(0.600 ns) + CELL(2.300 ns) = 35.100 ns; Loc. = LC3_D6; Fanout = 1; COMB Node = 'pong:inst2|always3~224'
+        Info: 9: + IC(0.600 ns) + CELL(2.300 ns) = 38.000 ns; Loc. = LC1_D6; Fanout = 6; COMB Node = 'pong:inst2|always3~225'
+        Info: 10: + IC(2.400 ns) + CELL(1.800 ns) = 42.200 ns; Loc. = LC5_D7; Fanout = 7; COMB Node = 'pong:inst2|cont_aux~1294'
+        Info: 11: + IC(0.600 ns) + CELL(2.300 ns) = 45.100 ns; Loc. = LC2_D7; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1295'
+        Info: 12: + IC(0.600 ns) + CELL(2.300 ns) = 48.000 ns; Loc. = LC8_D7; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1296'
+        Info: 13: + IC(2.300 ns) + CELL(1.800 ns) = 52.100 ns; Loc. = LC2_D8; Fanout = 3; COMB Node = 'pong:inst2|always3~226'
+        Info: 14: + IC(0.600 ns) + CELL(1.800 ns) = 54.500 ns; Loc. = LC5_D8; Fanout = 8; COMB Node = 'pong:inst2|always3~228'
+        Info: 15: + IC(0.600 ns) + CELL(2.300 ns) = 57.400 ns; Loc. = LC6_D8; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1297'
+        Info: 16: + IC(0.600 ns) + CELL(2.300 ns) = 60.300 ns; Loc. = LC4_D8; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1299'
+        Info: 17: + IC(0.600 ns) + CELL(2.300 ns) = 63.200 ns; Loc. = LC1_D8; Fanout = 4; COMB Node = 'pong:inst2|always3~230'
+        Info: 18: + IC(2.800 ns) + CELL(1.800 ns) = 67.800 ns; Loc. = LC5_D14; Fanout = 6; COMB Node = 'pong:inst2|cont_aux~1301'
+        Info: 19: + IC(0.600 ns) + CELL(2.300 ns) = 70.700 ns; Loc. = LC7_D14; Fanout = 3; COMB Node = 'pong:inst2|always3~232'
+        Info: 20: + IC(0.600 ns) + CELL(2.300 ns) = 73.600 ns; Loc. = LC2_D14; Fanout = 7; COMB Node = 'pong:inst2|always3~233'
+        Info: 21: + IC(0.600 ns) + CELL(1.800 ns) = 76.000 ns; Loc. = LC1_D14; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1303'
+        Info: 22: + IC(2.500 ns) + CELL(2.300 ns) = 80.800 ns; Loc. = LC3_D13; Fanout = 5; COMB Node = 'pong:inst2|always3~23'
+        Info: 23: + IC(0.600 ns) + CELL(2.300 ns) = 83.700 ns; Loc. = LC4_D13; Fanout = 6; COMB Node = 'pong:inst2|always3~236'
+        Info: 24: + IC(2.200 ns) + CELL(1.800 ns) = 87.700 ns; Loc. = LC7_D15; Fanout = 8; COMB Node = 'pong:inst2|cont_aux~1305'
+        Info: 25: + IC(0.600 ns) + CELL(2.300 ns) = 90.600 ns; Loc. = LC4_D15; Fanout = 1; COMB Node = 'pong:inst2|always3~26'
+        Info: 26: + IC(0.600 ns) + CELL(1.800 ns) = 93.000 ns; Loc. = LC2_D15; Fanout = 7; COMB Node = 'pong:inst2|cont_aux~1307'
+        Info: 27: + IC(0.600 ns) + CELL(2.300 ns) = 95.900 ns; Loc. = LC6_D15; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1308'
+        Info: 28: + IC(0.600 ns) + CELL(1.800 ns) = 98.300 ns; Loc. = LC1_D15; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1310'
+        Info: 29: + IC(2.200 ns) + CELL(2.300 ns) = 102.800 ns; Loc. = LC6_D16; Fanout = 5; COMB Node = 'pong:inst2|always3~29'
+        Info: 30: + IC(0.600 ns) + CELL(1.800 ns) = 105.200 ns; Loc. = LC8_D16; Fanout = 12; COMB Node = 'pong:inst2|cont_aux~1312'
+        Info: 31: + IC(0.600 ns) + CELL(2.300 ns) = 108.100 ns; Loc. = LC2_D16; Fanout = 4; COMB Node = 'pong:inst2|always3~30'
+        Info: 32: + IC(0.600 ns) + CELL(2.300 ns) = 111.000 ns; Loc. = LC5_D16; Fanout = 2; COMB Node = 'pong:inst2|cont_aux~1314'
+        Info: 33: + IC(0.600 ns) + CELL(1.800 ns) = 113.400 ns; Loc. = LC7_D16; Fanout = 9; COMB Node = 'pong:inst2|always3~238'
+        Info: 34: + IC(2.400 ns) + CELL(1.800 ns) = 117.600 ns; Loc. = LC3_D18; Fanout = 14; COMB Node = 'pong:inst2|cont_aux~1315'
+        Info: 35: + IC(0.600 ns) + CELL(2.300 ns) = 120.500 ns; Loc. = LC5_D18; Fanout = 3; COMB Node = 'pong:inst2|always3~33'
+        Info: 36: + IC(0.600 ns) + CELL(1.800 ns) = 122.900 ns; Loc. = LC2_D18; Fanout = 6; COMB Node = 'pong:inst2|cont_aux~1317'
+        Info: 37: + IC(0.600 ns) + CELL(2.300 ns) = 125.800 ns; Loc. = LC1_D18; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1329'
+        Info: 38: + IC(2.500 ns) + CELL(1.800 ns) = 130.100 ns; Loc. = LC3_D17; Fanout = 5; COMB Node = 'pong:inst2|cont_aux~1330'
+        Info: 39: + IC(0.600 ns) + CELL(2.300 ns) = 133.000 ns; Loc. = LC5_D17; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1331'
+        Info: 40: + IC(0.600 ns) + CELL(1.800 ns) = 135.400 ns; Loc. = LC1_D17; Fanout = 3; COMB Node = 'pong:inst2|cont_aux~1332'
+        Info: 41: + IC(2.700 ns) + CELL(1.800 ns) = 139.900 ns; Loc. = LC3_D7; Fanout = 2; COMB Node = 'pong:inst2|cont_aux~1337'
+        Info: 42: + IC(0.600 ns) + CELL(1.800 ns) = 142.300 ns; Loc. = LC1_D7; Fanout = 4; COMB Node = 'pong:inst2|cont_aux~1338'
+        Info: 43: + IC(2.200 ns) + CELL(1.700 ns) = 146.200 ns; Loc. = LC2_D4; Fanout = 1; REG Node = 'pong:inst2|cont_aux.0000000110'
+        Info: Total cell delay = 90.500 ns ( 61.90 % )
+        Info: Total interconnect delay = 55.700 ns ( 38.10 % )
+    Info: + Micro setup delay of destination is 2.500 ns
+    Info: - Shortest clock path from clock "clock" to destination register is 11.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_91; Fanout = 44; CLK Node = 'clock'
+        Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC1_F10; Fanout = 56; REG Node = 'pong:inst2|innerClk'
+        Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC2_D4; Fanout = 1; REG Node = 'pong:inst2|cont_aux.0000000110'
+        Info: Total cell delay = 3.900 ns ( 35.45 % )
+        Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+Info: tco from clock "clock" to destination pin "V" through register "VGAdrive:inst|V" is 15.500 ns
+    Info: + Longest clock path from clock "clock" to source register is 5.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_91; Fanout = 44; CLK Node = 'clock'
+        Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC1_F19; Fanout = 1; REG Node = 'VGAdrive:inst|V'
+        Info: Total cell delay = 2.800 ns ( 52.83 % )
+        Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Longest register to pin delay is 9.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_F19; Fanout = 1; REG Node = 'VGAdrive:inst|V'
+        Info: 2: + IC(4.000 ns) + CELL(5.100 ns) = 9.100 ns; Loc. = PIN_239; Fanout = 0; PIN Node = 'V'
+        Info: Total cell delay = 5.100 ns ( 56.04 % )
+        Info: Total interconnect delay = 4.000 ns ( 43.96 % )
+Info: th for register "pong:inst2|y[9]" (data pin = "enableLeftRight", clock pin = "clock") is 4.800 ns
+    Info: + Longest clock path from clock "clock" to destination register is 11.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_91; Fanout = 44; CLK Node = 'clock'
+        Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC1_F10; Fanout = 56; REG Node = 'pong:inst2|innerClk'
+        Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC3_E9; Fanout = 16; REG Node = 'pong:inst2|y[9]'
+        Info: Total cell delay = 3.900 ns ( 35.45 % )
+        Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+    Info: + Micro hold delay of destination is 1.600 ns
+    Info: - Shortest pin to register delay is 7.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.500 ns) = 3.500 ns; Loc. = PIN_41; Fanout = 24; PIN Node = 'enableLeftRight'
+        Info: 2: + IC(3.100 ns) + CELL(1.200 ns) = 7.800 ns; Loc. = LC3_E9; Fanout = 16; REG Node = 'pong:inst2|y[9]'
+        Info: Total cell delay = 4.700 ns ( 60.26 % )
+        Info: Total interconnect delay = 3.100 ns ( 39.74 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 183 megabytes
+    Info: Processing ended: Fri Dec 13 14:08:15 2019
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+
