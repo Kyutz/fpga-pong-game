@@ -1,0 +1,26 @@
+# Quartus II generated files
+*.qpf
+*.qsf
+*.qws
+*.sof
+*.pof
+*.rpt
+*.smsg
+*.summary
+*.done
+*.jdi
+
+# Logs and reports
+/logs/
+*.txt
+*.html
+
+# Temporary/OS files
+.DS_Store
+*.bak
+*.tmp
+
+# Simulation files
+*.vcd
+*.vwf
+*.do
